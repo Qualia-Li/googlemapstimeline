@@ -22,7 +22,47 @@ import { Footer } from "@/components/Footer";
 // Get Google Maps API key from environment variable
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
+// Calculate distance between two coordinates using the Haversine formula
+const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+  const R = 6371; // Radius of the earth in km
+  const dLat = (lat2 - lat1) * Math.PI / 180;
+  const dLon = (lon2 - lon1) * Math.PI / 180;
+  const a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  const distance = R * c; // Distance in km
+  return distance;
+};
+
 export default function Home() {
+  // Calculate total distance for all path segments
+  const calculateTotalDistance = (
+    paths: Array<{ lat: number; lng: number }>
+  ): number => {
+    let totalDistance = 0;
+
+    for (let i = 0; i < paths.length - 1; i++) {
+      const current = paths[i];
+      const next = paths[i + 1];
+      totalDistance += calculateDistance(
+        current.lat,
+        current.lng,
+        next.lat,
+        next.lng
+      );
+    }
+
+    // Convert to miles if needed
+    return distanceUnit === "miles" ? totalDistance * 0.621371 : totalDistance;
+  };
+
+  const [distanceUnit, setDistanceUnit] = useState<"km" | "miles">("km");
+  // Function to toggle distance unit
+  const toggleDistanceUnit = useCallback(() => {
+    setDistanceUnit((prevUnit) => (prevUnit === "km" ? "miles" : "km"));
+  }, []);
   const [locationHistory, setLocationHistory] = useState<LocationHistoryItem[]>(
     []
   );
@@ -322,13 +362,19 @@ export default function Home() {
               </div>
               <div className="stat p-4 bg-card rounded-lg shadow">
                 <div className="stat-title text-muted-foreground">
-                  Path Points
+                  Distance Traveled
                 </div>
-                <div className="stat-value text-2xl font-bold">
-                  {mapPaths.length}
+                <div className="stat-value text-2xl font-bold flex items-center">
+                  {calculateTotalDistance(mapPaths).toFixed(1)}
+                  <button
+                    onClick={toggleDistanceUnit}
+                    className="ml-2 text-sm bg-secondary px-2 py-1 rounded hover:bg-secondary/80"
+                  >
+                    {distanceUnit}
+                  </button>
                 </div>
                 <div className="stat-desc text-muted-foreground text-sm">
-                  Travel coordinates
+                  Total journey length
                 </div>
               </div>
               <div className="stat p-4 bg-card rounded-lg shadow">
