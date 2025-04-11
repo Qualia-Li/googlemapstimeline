@@ -10,11 +10,11 @@ import { DateRangePickerWithPresets } from "@/components/date-range-picker";
 import GoogleMap from "@/components/google-map";
 import { FileUpload } from "@/components/file-upload";
 import { Button } from "@/components/ui/button";
-import { 
-  LocationHistoryItem, 
-  filterLocationsByDateRange, 
+import {
+  LocationHistoryItem,
+  filterLocationsByDateRange,
   extractMarkersFromVisitData,
-  extractPathFromActivityData
+  extractPathFromActivityData,
 } from "@/lib/utils";
 import { DonationSection } from "@/components/DonationSection";
 import { Footer } from "@/components/Footer";
@@ -23,8 +23,12 @@ import { Footer } from "@/components/Footer";
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
 export default function Home() {
-  const [locationHistory, setLocationHistory] = useState<LocationHistoryItem[]>([]);
-  const [filteredLocations, setFilteredLocations] = useState<LocationHistoryItem[]>([]);
+  const [locationHistory, setLocationHistory] = useState<LocationHistoryItem[]>(
+    []
+  );
+  const [filteredLocations, setFilteredLocations] = useState<
+    LocationHistoryItem[]
+  >([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [dateRange, setDateRange] = useState<DateRange | undefined>({
@@ -33,8 +37,12 @@ export default function Home() {
   });
   const [isFileUploaded, setIsFileUploaded] = useState(false);
 
-  const [mapMarkers, setMapMarkers] = useState<ReturnType<typeof extractMarkersFromVisitData>>([]);
-  const [mapPaths, setMapPaths] = useState<ReturnType<typeof extractPathFromActivityData>>([]);
+  const [mapMarkers, setMapMarkers] = useState<
+    ReturnType<typeof extractMarkersFromVisitData>
+  >([]);
+  const [mapPaths, setMapPaths] = useState<
+    ReturnType<typeof extractPathFromActivityData>
+  >([]);
 
   // Handle file upload success
   const handleFileLoaded = (data: LocationHistoryItem[]) => {
@@ -64,24 +72,28 @@ export default function Home() {
         dateRange.from,
         dateRange.to || dateRange.from
       );
-      
+
       setFilteredLocations(filtered);
-      console.log('Filtered locations:', filtered.length, 'items');
+      console.log("Filtered locations:", filtered.length, "items");
 
       // Extract markers from visit data
       const markers = extractMarkersFromVisitData(filtered);
-      console.log('Extracted markers:', markers.length);
+      console.log("Extracted markers:", markers.length);
       setMapMarkers(markers);
 
       // Extract paths from activity data
       const paths = extractPathFromActivityData(filtered);
-      console.log('Extracted paths:', paths.length, 'points');
+      console.log("Extracted paths:", paths.length, "points");
       setMapPaths(paths);
     } catch (err) {
-      console.error('Error processing location data:', err);
-      setError('Error processing location data');
+      console.error("Error processing location data:", err);
+      setError("Error processing location data");
     }
-  }, [locationHistory, dateRange?.from?.toISOString(), dateRange?.to?.toISOString()]);
+  }, [
+    locationHistory,
+    dateRange?.from?.toISOString(),
+    dateRange?.to?.toISOString(),
+  ]);
 
   // Handle date range change
   const handleDateRangeChange = useCallback((range: DateRange | undefined) => {
@@ -91,9 +103,9 @@ export default function Home() {
   // Update the map component render section to use a key based on the date range
   // to force proper re-rendering only when needed
   const mapKey = useMemo(() => {
-    if (!dateRange?.from) return 'no-date';
-    const from = dateRange.from.toISOString().split('T')[0];
-    const to = dateRange.to ? dateRange.to.toISOString().split('T')[0] : from;
+    if (!dateRange?.from) return "no-date";
+    const from = dateRange.from.toISOString().split("T")[0];
+    const to = dateRange.to ? dateRange.to.toISOString().split("T")[0] : from;
     return `map-${from}-${to}-${filteredLocations.length}`;
   }, [dateRange?.from, dateRange?.to, filteredLocations.length]);
 
@@ -113,10 +125,7 @@ export default function Home() {
           <AlertCircle className="mx-auto h-12 w-12 text-red-500 mb-4" />
           <h1 className="text-2xl font-bold mb-4">Error Loading Data</h1>
           <p className="mb-4 text-red-500">{error}</p>
-          <Button 
-            onClick={() => setError(null)}
-            variant="outline"
-          >
+          <Button onClick={() => setError(null)} variant="outline">
             Try Again
           </Button>
         </div>
@@ -129,10 +138,15 @@ export default function Home() {
       <div className="h-screen flex items-center justify-center">
         <div className="text-center">
           <AlertCircle className="mx-auto h-12 w-12 text-yellow-500 mb-4" />
-          <h1 className="text-2xl font-bold mb-4">Google Maps API Key Missing</h1>
-          <p className="mb-4">Please add your Google Maps API key to the environment variables.</p>
+          <h1 className="text-2xl font-bold mb-4">
+            Google Maps API Key Missing
+          </h1>
+          <p className="mb-4">
+            Please add your Google Maps API key to the environment variables.
+          </p>
           <p className="text-sm text-muted-foreground">
-            Create a .env.local file and add: NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
+            Create a .env.local file and add:
+            NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
           </p>
         </div>
       </div>
@@ -164,6 +178,17 @@ export default function Home() {
               onFileLoaded={handleFileLoaded}
               onError={handleFileError}
             />
+
+            {/* Show map based on user's country without asking for permission */}
+            <div className="mb-6 mt-8 relative" style={{ height: "400px" }}>
+              <GoogleMap
+                key="country-map"
+                apiKey={GOOGLE_MAPS_API_KEY}
+                markers={[]}
+                paths={[]}
+                height="100%"
+              />
+            </div>
 
             <DonationSection />
 
