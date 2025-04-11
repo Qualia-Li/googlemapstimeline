@@ -229,69 +229,6 @@ export default function Home() {
                 height="100%"
               />
             </div>
-
-            <DonationSection />
-
-            {/* FAQ Section */}
-            <div className="mt-12 max-w-3xl mx-auto">
-              <h2 className="text-2xl font-bold mb-6 text-center">
-                🤔 Frequently Asked Questions
-              </h2>
-
-              <div className="space-y-6">
-                <div className="bg-card p-4 rounded-lg shadow">
-                  <h3 className="text-lg font-semibold mb-2">
-                    💰 Is this free?
-                  </h3>
-                  <p>
-                    Yes, it is completely free to use! But if you find it
-                    helpful, you can donate to support development.
-                  </p>
-                </div>
-
-                <div className="bg-card p-4 rounded-lg shadow">
-                  <h3 className="text-lg font-semibold mb-2">
-                    🔒 Is my data safe?
-                  </h3>
-                  <p>
-                    Absolutely! We don't store your data at all - we don't even
-                    have a backend server. All processing happens locally in
-                    your browser.
-                  </p>
-                </div>
-
-                <div className="bg-card p-4 rounded-lg shadow">
-                  <h3 className="text-lg font-semibold mb-2">
-                    🌐 Are you affiliated with Google?
-                  </h3>
-                  <p>
-                    No, I'm just a programmer who loves travel and needed a tool
-                    to visualize my travel routes. This is an independent
-                    project.
-                  </p>
-                </div>
-
-                <div className="bg-card p-4 rounded-lg shadow">
-                  <h3 className="text-lg font-semibold mb-2">
-                    👨‍💻 What if I'm still uncertain about my data?
-                  </h3>
-                  <p>
-                    Our code is open source! You can feel free to check it
-                    (don't forget to give us a star) at{" "}
-                    <a
-                      href="https://github.com/Qualia-Li/googlemapstimeline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
-                    >
-                      github.com/Qualia-Li/googlemapstimeline
-                    </a>
-                    . You can also host it yourself if you have a Google API
-                    key.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         ) : (
           // Show map and date filters if a file has been uploaded
@@ -445,6 +382,65 @@ export default function Home() {
             </div>
           </>
         )}
+
+        <DonationSection />
+
+        {/* FAQ Section */}
+        <div className="mt-12 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            🤔 Frequently Asked Questions
+          </h2>
+
+          <div className="space-y-6">
+            <div className="bg-card p-4 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-2">💰 Is this free?</h3>
+              <p>
+                Yes, it is completely free to use! But if you find it helpful,
+                you can donate to support development.
+              </p>
+            </div>
+
+            <div className="bg-card p-4 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-2">
+                🔒 Is my data safe?
+              </h3>
+              <p>
+                Absolutely! We don't store your data at all - we don't even have
+                a backend server. All processing happens locally in your
+                browser.
+              </p>
+            </div>
+
+            <div className="bg-card p-4 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-2">
+                🌐 Are you affiliated with Google?
+              </h3>
+              <p>
+                No, I'm just a programmer who loves travel and needed a tool to
+                visualize my travel routes. This is an independent project.
+              </p>
+            </div>
+
+            <div className="bg-card p-4 rounded-lg shadow">
+              <h3 className="text-lg font-semibold mb-2">
+                👨‍💻 What if I'm still uncertain about my data?
+              </h3>
+              <p>
+                Our code is open source! You can feel free to check it (don't
+                forget to give us a star) at{" "}
+                <a
+                  href="https://github.com/Qualia-Li/googlemapstimeline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  github.com/Qualia-Li/googlemapstimeline
+                </a>
+                . You can also host it yourself if you have a Google API key.
+              </p>
+            </div>
+          </div>
+        </div>
       </main>
       <Footer />
     </>
