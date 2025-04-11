@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { addDays, format } from "date-fns";
+import { addDays, format, startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, subMonths } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 
@@ -152,6 +152,38 @@ export function DateRangePickerWithPresets({
                   }}
                 >
                   Last 30 days
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const today = new Date();
+                    const lastWeek = subWeeks(today, 1);
+                    const lastWeekStart = startOfWeek(lastWeek, { weekStartsOn: 0 }); // 0 for Sunday, 1 for Monday
+                    const lastWeekEnd = endOfWeek(lastWeek, { weekStartsOn: 0 });
+                    onDateRangeChange({
+                      from: lastWeekStart,
+                      to: lastWeekEnd,
+                    });
+                  }}
+                >
+                  Last Week
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const today = new Date();
+                    const lastMonth = subMonths(today, 1);
+                    const lastMonthStart = startOfMonth(lastMonth);
+                    const lastMonthEnd = endOfMonth(lastMonth);
+                    onDateRangeChange({
+                      from: lastMonthStart,
+                      to: lastMonthEnd,
+                    });
+                  }}
+                >
+                  Last Month
                 </Button>
               </div>
             </div>
