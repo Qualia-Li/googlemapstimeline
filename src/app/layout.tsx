@@ -18,7 +18,29 @@ export const metadata: Metadata = {
   keywords: ["google maps", "location history", "timeline", "maps", "visualization"],
   alternates: {
     canonical: 'https://www.googlemapstimeline.com',
-  }
+  },
+  openGraph: {
+    title: "Google Maps Timeline Visualizer",
+    description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
+    url: 'https://www.googlemapstimeline.com',
+    siteName: 'Google Maps Timeline Visualizer',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/image/og_image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Google Maps Timeline Visualizer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Google Maps Timeline Visualizer",
+    description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
+    images: ['/image/og_image.png'],
+  },
 };
 
 export default function RootLayout({
