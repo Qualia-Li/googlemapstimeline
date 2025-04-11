@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://googlemapstimeline.com/sitemap.xml 
+Sitemap: https://www.googlemapstimeline.com/sitemap.xml 

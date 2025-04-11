@@ -147,7 +147,7 @@ export default function Home() {
           name="description"
           content="Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been."
         />
-        <link rel="canonical" href="https://googlemapstimeline.com" />
+        <link rel="canonical" href="https://www.googlemapstimeline.com" />
       </Head>
       <main className="container mx-auto p-4 md:p-6 min-h-screen">
         <h1 className="text-3xl font-bold mb-6">

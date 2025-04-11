@@ -1,5 +1,7 @@
 # Google Maps Timeline Visualizer
 
+Available at [www.googlemapstimeline.com](https://www.googlemapstimeline.com). 
+
 This application allows you to visualize your Google Maps Timeline (Location History) data on an interactive map. Upload your location history JSON file, select a date range, and explore your past movements and visited places.
 
 ## Features

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
   keywords: ["google maps", "location history", "timeline", "maps", "visualization"],
   alternates: {
-    canonical: 'https://googlemapstimeline.com',
+    canonical: 'https://www.googlemapstimeline.com',
   }
 };
 
