@@ -172,6 +172,11 @@ export default function Home() {
                   <h3 className="text-lg font-semibold mb-2">🌐 Are you affiliated with Google?</h3>
                   <p>No, I'm just a programmer who loves travel and needed a tool to visualize my travel routes. This is an independent project.</p>
                 </div>
+                
+                <div className="bg-card p-4 rounded-lg shadow">
+                  <h3 className="text-lg font-semibold mb-2">👨‍💻 What if I'm still uncertain about my data?</h3>
+                  <p>Our code is open source! You can feel free to check it (don't forget to give us a star) at <a href="https://github.com/Qualia-Li/googlemapstimeline" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">github.com/Qualia-Li/googlemapstimeline</a>. You can also host it yourself if you have a Google API key.</p>
+                </div>
               </div>
             </div>
           </div>
