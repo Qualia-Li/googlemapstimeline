@@ -20,7 +20,7 @@
     "@types/google.maps": "^3.58.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
+    "date-fns": "^3.0.6",
     "lucide-react": "^0.487.0",
     "next": "15.3.0",
     "react": "^19.0.0",
@@ -40,5 +40,8 @@
     "eslint-config-next": "15.3.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "date-fns": "^3.0.6"
   }
 }
