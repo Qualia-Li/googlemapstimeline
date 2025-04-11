@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Coffee, Heart } from "lucide-react";
+import { Heart } from "lucide-react";
 
 export function DonationSection() {
   return (

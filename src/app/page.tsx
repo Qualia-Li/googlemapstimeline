@@ -17,6 +17,7 @@ import {
   extractPathFromActivityData
 } from "@/lib/utils";
 import { DonationSection } from "@/components/DonationSection";
+import { Footer } from "@/components/Footer";
 
 // Get Google Maps API key from environment variable
 const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
@@ -374,6 +375,7 @@ export default function Home() {
           </>
         )}
       </main>
+      <Footer />
     </>
   );
 }
