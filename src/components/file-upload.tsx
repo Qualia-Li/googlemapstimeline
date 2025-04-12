@@ -149,16 +149,7 @@ export function FileUpload({ onFileLoaded, onError }: FileUploadProps) {
               Select File
             </Button>
             <div className="mt-4 text-xs text-gray-500">
-              <p>
-                <span className="font-semibold">How to get your Google Maps Timeline data:</span>
-              </p>
-              <ol className="text-left list-decimal pl-4 mt-1 space-y-1">
-                <li>Go to <a href="https://takeout.google.com" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Google Takeout</a></li>
-                <li>Select "Location History" (JSON format)</li>
-                <li>Export and download your data</li>
-                <li>Find the JSON file in the downloaded archive</li>
-                <li>Upload the JSON file here</li>
-              </ol>
+                <a href='/blog/export-google-timeline-data' className="font-semibold text-blue-500">Step by step guide to export your Google Maps Timeline data</a>
             </div>
           </div>
         )}
