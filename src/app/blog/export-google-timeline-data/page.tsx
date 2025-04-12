@@ -32,6 +32,7 @@ export const metadata = {
     images: ["/images/export_google_timeline.webp"],
     creator: "@quanlai",
   },
+  canonical: "https://googlemapstimeline.com/blog/export-google-timeline-data",
 };
 
 export default function ExportGoogleTimelineDataPage() {
@@ -52,7 +53,7 @@ export default function ExportGoogleTimelineDataPage() {
           <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-6">
             <div className="flex items-center">
               <CalendarIcon className="mr-1 h-4 w-4" />
-              Updated: May 2025
+              Updated: Apr 2025
             </div>
             <div className="flex items-center">
               <Clock className="mr-1 h-4 w-4" />

@@ -18,7 +18,7 @@ const blogPosts: BlogPost[] = [
     slug: "export-google-timeline-data",
     title: "Step by Step Guide to Export Your Google Timeline Data in 2025",
     description: "Learn how to export your location history from Google and visualize it with our tool.",
-    date: "May 11, 2025",
+    date: "Apr 12, 2025",
     author: "Quan Lai",
     readTime: "3 min read",
     imageUrl: "/images/export_google_timeline.webp",
