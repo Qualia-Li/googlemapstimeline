@@ -396,7 +396,12 @@ export default function Home() {
               <h3 className="text-lg font-semibold mb-2">💰 Is this free?</h3>
               <p>
                 Yes, it is completely free to use! But if you find it helpful,
-                you can donate to support development.
+                you can <a 
+                  href="https://www.paypal.com/donate?business=FHJMRDXEDC74L&amount=8&no_recurring=0&item_name=Buy+me+a+cup+of+coffee&currency_code=USD" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >donate</a> to support development.
               </p>
             </div>
 
