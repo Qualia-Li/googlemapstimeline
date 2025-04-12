@@ -1,111 +1,76 @@
 import Link from "next/link";
-import { Calendar, Clock, User } from "lucide-react";
+import Image from "next/image";
+import { CalendarIcon, Clock, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/Footer";
-
-type BlogPost = {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  author: string;
-  readTime: string;
-  imageUrl: string;
-};
-
-const blogPosts: BlogPost[] = [
-  {
-    slug: "export-google-timeline-data",
-    title: "Step by Step Guide to Export Your Google Timeline Data in 2025",
-    description: "Learn how to export your location history from Google and visualize it with our tool.",
-    date: "Apr 12, 2025",
-    author: "Quan Lai",
-    readTime: "3 min read",
-    imageUrl: "/images/export_google_timeline.webp",
-  },
-  // {
-  //   slug: "privacy-and-location-data",
-  //   title: "Understanding Privacy and Your Location Data",
-  //   description: "What you should know about privacy implications when using location services.",
-  //   date: "June 3, 2023",
-  //   author: "Privacy Expert",
-  //   readTime: "8 min read",
-  //   imageUrl: "/blog/privacy-location.jpg",
-  // },
-  // {
-  //   slug: "visualizing-travel-history",
-  //   title: "Creative Ways to Visualize Your Travel History",
-  //   description: "Fun and interesting ways to make the most of your location data visualization.",
-  //   date: "July 12, 2023",
-  //   author: "Travel Enthusiast",
-  //   readTime: "6 min read",
-  //   imageUrl: "/blog/travel-visualization.jpg",
-  // },
-];
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { getAllBlogPosts } from "@/data/blogPosts";
 
 export const metadata = {
   title: "Blog | Google Maps Timeline Visualizer",
-  description: "Articles and guides about Google Maps Timeline, location data, and travel visualization.",
-  openGraph: {
-    title: "Blog | Google Maps Timeline Visualizer",
-    description: "Articles and guides about Google Maps Timeline, location data, and travel visualization.",
-    type: "website",
-  },
+  description: "Helpful articles and guides about using Google Maps Timeline data and our visualization tools",
 };
 
-export default function BlogPage() {
+export default function BlogIndexPage() {
+  const posts = getAllBlogPosts();
+
   return (
     <>
-      <main className="container mx-auto p-4 md:p-6 min-h-screen">
+      <div className="container mx-auto p-4 md:p-6 max-w-5xl">
         <Link href="/">
-          <Button variant="ghost" className="mb-4">
-            ← Back to Map
+          <Button variant="ghost" className="mb-6">
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Map
           </Button>
         </Link>
 
-        <h1 className="text-3xl font-bold mb-2">Blog</h1>
-        <p className="text-muted-foreground mb-8">
-          Tips, guides, and insights on location history and travel visualization
-        </p>
+        <div className="mb-10">
+          <h1 className="text-4xl font-bold mb-3">Blog</h1>
+          <p className="text-lg text-muted-foreground">
+            Guides, tutorials, and insights to help you get the most out of your location data
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((post) => (
-            <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <div className="group overflow-hidden rounded-lg border bg-card shadow transition-all hover:shadow-md">
-                <div className="aspect-video w-full overflow-hidden bg-muted">
-                  <div className="h-full w-full bg-secondary flex items-center justify-center text-muted-foreground">
-                    <img 
-                      src={post.imageUrl} 
-                      alt={post.title} 
-                      className="h-full w-full object-fit transition-all group-hover:scale-105" 
-                    />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {posts.map((post) => (
+            <Card key={post.id} className="overflow-hidden flex flex-col">
+              <div className="aspect-video relative">
+                {post.metadata.openGraph.images && post.metadata.openGraph.images[0] && (
+                  <Image
+                    src={post.metadata.openGraph.images[0].url}
+                    alt={post.metadata.openGraph.images[0].alt}
+                    fill
+                    className="object-cover"
+                  />
+                )}
+              </div>
+              <CardHeader>
+                <CardTitle className="text-xl">{post.metadata.title}</CardTitle>
+                <CardDescription>{post.metadata.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex space-x-4 text-sm text-muted-foreground mb-4">
+                  <div className="flex items-center">
+                    <CalendarIcon className="mr-1 h-4 w-4" />
+                    {post.metadata.publishDate}
                   </div>
-                </div>
-                <div className="p-4">
-                  <h2 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h2>
-                  <p className="text-muted-foreground mb-4">{post.description}</p>
-                  <div className="flex flex-wrap text-sm text-muted-foreground gap-4">
-                    <div className="flex items-center">
-                      <Calendar className="mr-1 h-4 w-4" />
-                      {post.date}
-                    </div>
-                    <div className="flex items-center">
-                      <User className="mr-1 h-4 w-4" />
-                      {post.author}
-                    </div>
+                  {post.metadata.readingTime && (
                     <div className="flex items-center">
                       <Clock className="mr-1 h-4 w-4" />
-                      {post.readTime}
+                      {post.metadata.readingTime}
                     </div>
-                  </div>
+                  )}
                 </div>
-              </div>
-            </Link>
+              </CardContent>
+              <CardFooter className="mt-auto">
+                <Link href={`/blog/${post.slug}`}>
+                  <Button>Read More</Button>
+                </Link>
+              </CardFooter>
+            </Card>
           ))}
         </div>
-      </main>
+      </div>
       <Footer />
     </>
   );
