@@ -23,6 +23,26 @@ export function Footer() {
         </a>
         
         <a 
+          href="https://vibehacker.fm" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-primary hover:underline"
+        >
+          <ExternalLink className="h-4 w-4" />
+          vibehacker.fm
+        </a>
+
+        <a 
+          href="https://enception.ai" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center gap-1 text-primary hover:underline"
+        >
+          <ExternalLink className="h-4 w-4" />
+          enception.ai
+        </a>
+        
+        <a 
           href="https://quanlai.li" 
           target="_blank" 
           rel="noopener noreferrer"
