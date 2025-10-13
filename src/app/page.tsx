@@ -399,7 +399,7 @@ export default function Home() {
                 you can <a 
                   href="https://www.paypal.com/donate?business=FHJMRDXEDC74L&amount=8&no_recurring=0&item_name=Buy+me+a+cup+of+coffee&currency_code=USD" 
                   target="_blank" 
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-blue-600 hover:underline"
                 >donate</a> to support development.
               </p>
@@ -436,7 +436,7 @@ export default function Home() {
                 <a
                   href="https://github.com/Qualia-Li/googlemapstimeline"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="text-blue-600 hover:underline"
                 >
                   github.com/Qualia-Li/googlemapstimeline
