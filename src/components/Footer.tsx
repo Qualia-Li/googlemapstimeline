@@ -42,14 +42,14 @@ export function Footer() {
           enception.ai
         </a>
         
-        <a 
-          href="https://quanlai.li" 
-          target="_blank" 
+        <a
+          href="https://quanl.ai"
+          target="_blank"
           rel="noopener"
           className="flex items-center gap-1 text-primary hover:underline"
         >
           <Globe className="h-4 w-4" />
-          quanlai.li
+          quanl.ai
         </a>
       </div>
 
