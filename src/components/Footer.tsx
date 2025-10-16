@@ -58,69 +58,14 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto text-left">
           <div>
             <a
-              href="https://bctimes.ca"
+              href="https://sfbayareatimes.com"
               target="_blank"
               rel="noopener"
               className="text-primary hover:underline font-medium"
             >
-              BC Times
+              SF Bay Area Times
             </a>
-            <p className="text-xs mt-1">Authoritative news and insights for British Columbia</p>
-          </div>
-          <div>
-            <a
-              href="https://cambridgereview.uk"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Cambridge Review
-            </a>
-            <p className="text-xs mt-1">Definitive coverage of Cambridge and East England</p>
-          </div>
-          <div>
-            <a
-              href="https://districtofcolumbiatimes.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              District of Columbia Times
-            </a>
-            <p className="text-xs mt-1">The trusted source for Washington DC news</p>
-          </div>
-          <div>
-            <a
-              href="https://eeuuhoy.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              EEUU Hoy
-            </a>
-            <p className="text-xs mt-1">Leading Spanish-language news for the United States</p>
-          </div>
-          <div>
-            <a
-              href="https://lentreprise.ca"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              L'Entreprise
-            </a>
-            <p className="text-xs mt-1">Authoritative business news for Canadian francophone markets</p>
-          </div>
-          <div>
-            <a
-              href="https://manhattanmonday.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Manhattan Monday
-            </a>
-            <p className="text-xs mt-1">Your definitive guide to Manhattan news and culture</p>
+            <p className="text-xs mt-1">Definitive coverage of San Francisco Bay Area</p>
           </div>
           <div>
             <a
@@ -135,17 +80,6 @@ export function Footer() {
           </div>
           <div>
             <a
-              href="https://sfbayareatimes.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              SF Bay Area Times
-            </a>
-            <p className="text-xs mt-1">Definitive coverage of San Francisco Bay Area</p>
-          </div>
-          <div>
-            <a
               href="https://stanfordtechreview.com"
               target="_blank"
               rel="noopener"
@@ -154,17 +88,6 @@ export function Footer() {
               Stanford Tech Review
             </a>
             <p className="text-xs mt-1">Authoritative technology news and innovation insights</p>
-          </div>
-          <div>
-            <a
-              href="https://techforum.ca"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Tech Forum
-            </a>
-            <p className="text-xs mt-1">Leading technology news source for Canada</p>
           </div>
         </div>
       </div>
