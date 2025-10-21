@@ -40,7 +40,9 @@ export async function generateMetadata({
     keywords: post.metadata.keywords,
     openGraph: post.metadata.openGraph,
     twitter: post.metadata.twitter,
-    canonical: post.metadata.canonical,
+    alternates: {
+      canonical: post.metadata.canonical,
+    },
   };
 }
 

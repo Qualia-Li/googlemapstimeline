@@ -9,6 +9,9 @@ import { getAllBlogPosts } from "@/data/blogPosts";
 export const metadata = {
   title: "Blog | Google Maps Timeline Visualizer",
   description: "Helpful articles and guides about using Google Maps Timeline data and our visualization tools",
+  alternates: {
+    canonical: "https://www.googlemapstimeline.com/blog",
+  },
 };
 
 export default function BlogIndexPage() {

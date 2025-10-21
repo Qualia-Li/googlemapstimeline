@@ -43,7 +43,7 @@ export const blogPosts: BlogPost[] = [
         creator: "@quanlai",
       },
       canonical:
-        "https://googlemapstimeline.com/blog/export-google-timeline-data",
+        "https://www.googlemapstimeline.com/blog/export-google-timeline-data",
     },
     {
       introduction:
@@ -200,7 +200,7 @@ export const blogPosts: BlogPost[] = [
         creator: "@quanlai",
       },
       canonical:
-        "https://googlemapstimeline.com/blog/privacy-and-location-data",
+        "https://www.googlemapstimeline.com/blog/privacy-and-location-data",
     },
     {
       introduction:

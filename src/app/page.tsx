@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo, useCallback } from "react";
 import { addDays, subDays } from "date-fns";
 import { DateRange } from "react-day-picker";
 import { Loader2, AlertCircle } from "lucide-react";
-import Head from "next/head";
 
 import { DateRangePickerWithPresets } from "@/components/date-range-picker";
 import GoogleMap from "@/components/google-map";
@@ -195,14 +194,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Google Maps Timeline Visualizer</title>
-        <meta
-          name="description"
-          content="Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been."
-        />
-        <link rel="canonical" href="https://www.googlemapstimeline.com" />
-      </Head>
       <main className="container mx-auto p-4 md:p-6 min-h-screen">
         <h1 className="text-3xl font-bold mb-6">
           Google Maps Timeline Visualizer
