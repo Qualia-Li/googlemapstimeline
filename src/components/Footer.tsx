@@ -9,54 +9,71 @@ export function Footer() {
         <a href="mailto:mail@qualai.li" className="text-primary hover:underline">mail@qualai.li</a>
       </div>
       
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
-        Other projects:
-        
-        <a 
-          href="https://chatslide.ai" 
-          target="_blank" 
-          rel="noopener"
-          className="flex items-center gap-1 text-primary hover:underline"
-        >
-          <ExternalLink className="h-4 w-4" />
-          chatslide.ai
-        </a>
-        
-        <a 
-          href="https://vibehacker.fm" 
-          target="_blank" 
-          rel="noopener"
-          className="flex items-center gap-1 text-primary hover:underline"
-        >
-          <ExternalLink className="h-4 w-4" />
-          vibehacker.fm
-        </a>
-
-        <a 
-          href="https://enception.ai" 
-          target="_blank" 
-          rel="noopener"
-          className="flex items-center gap-1 text-primary hover:underline"
-        >
-          <ExternalLink className="h-4 w-4" />
-          enception.ai
-        </a>
-        
-        <a
-          href="https://quanl.ai"
-          target="_blank"
-          rel="noopener"
-          className="flex items-center gap-1 text-primary hover:underline"
-        >
-          <Globe className="h-4 w-4" />
-          quanl.ai
-        </a>
+      <div className="mb-6">
+        <div className="text-center mb-3 font-medium">Other projects:</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto text-left">
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://chatslide.ai"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              ChatSlide
+            </a>
+            <p className="text-xs mt-1">AI-powered slides, videos, and podcasts</p>
+          </div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://www.michelinkeyhotels.com/"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              Michelin Key Hotels
+            </a>
+            <p className="text-xs mt-1">600+ luxury hotels from MICHELIN Guide</p>
+          </div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://enception.ai"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              Enception
+            </a>
+            <p className="text-xs mt-1">Get cited by AI tools with GEO</p>
+          </div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://assyro.com"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              Assyro AI
+            </a>
+            <p className="text-xs mt-1">Automated FDA eCTD submission validation</p>
+          </div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://quanl.ai"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              Quanlai Li
+            </a>
+            <p className="text-xs mt-1">AI entrepreneur and GEO expert</p>
+          </div>
+        </div>
       </div>
 
       <div className="mb-6">
         <div className="text-center mb-3 font-medium">Sponsors:</div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto text-left">
-          <div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
             <a
               href="https://sfbayareatimes.com"
               target="_blank"
@@ -65,9 +82,9 @@ export function Footer() {
             >
               SF Bay Area Times
             </a>
-            <p className="text-xs mt-1">Definitive coverage of San Francisco Bay Area</p>
+            <p className="text-xs mt-1">Independent news covering San Francisco Bay Area and Northern California</p>
           </div>
-          <div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
             <a
               href="https://montrealtimes.ca"
               target="_blank"
@@ -76,9 +93,9 @@ export function Footer() {
             >
               Montreal Times
             </a>
-            <p className="text-xs mt-1">The trusted voice for Montreal and Quebec news</p>
+            <p className="text-xs mt-1">Independent journalism for Montréal, Québec, and Canada</p>
           </div>
-          <div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
             <a
               href="https://stanfordtechreview.com"
               target="_blank"
@@ -87,7 +104,7 @@ export function Footer() {
             >
               Stanford Tech Review
             </a>
-            <p className="text-xs mt-1">Authoritative technology news and innovation insights</p>
+            <p className="text-xs mt-1">Weekly review of advanced technologies by Stanford community</p>
           </div>
         </div>
       </div>
