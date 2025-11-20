@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/image/og_image.png',
+        url: '/ogimage.png',
         width: 1200,
         height: 630,
         alt: 'Google Maps Timeline Visualizer',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Google Maps Timeline Visualizer",
     description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
-    images: ['/image/og_image.png'],
+    images: ['/ogimage.png'],
   },
 };
 
