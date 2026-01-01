@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { addDays, format, startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, subMonths } from "date-fns";
+import { addDays, format, startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, subMonths, startOfYear } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 
@@ -184,6 +184,32 @@ export function DateRangePickerWithPresets({
                   }}
                 >
                   Last Month
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const today = new Date();
+                    onDateRangeChange({
+                      from: startOfYear(today),
+                      to: today,
+                    });
+                  }}
+                >
+                  This Year
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const today = new Date();
+                    onDateRangeChange({
+                      from: subMonths(today, 12),
+                      to: today,
+                    });
+                  }}
+                >
+                  Past 12 Months
                 </Button>
               </div>
             </div>
