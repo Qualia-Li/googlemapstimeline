@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.googlemapstimeline.com'),
   title: "Google Maps Timeline Visualizer",
-  description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
+  description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history and explore your travels.",
   keywords: ["google maps", "location history", "timeline", "maps", "visualization"],
   alternates: {
     canonical: 'https://www.googlemapstimeline.com',
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Google Maps Timeline Visualizer",
-    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
+    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history and explore your travels.",
     url: 'https://www.googlemapstimeline.com',
     siteName: 'Google Maps Timeline Visualizer',
     locale: 'en_US',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Google Maps Timeline Visualizer",
-    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
+    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history and explore your travels.",
     images: ['/ogimage.png'],
   },
 };

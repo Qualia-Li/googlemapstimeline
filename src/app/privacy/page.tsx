@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Google Maps Timeline Visualizer",
-  description: "Learn how Google Maps Timeline Visualizer protects your privacy. All data processing happens locally in your browser - we never store or transmit your location data.",
+  description: "Learn how Google Maps Timeline Visualizer protects your privacy. All data processing happens locally in your browser.",
   alternates: {
     canonical: 'https://www.googlemapstimeline.com/privacy',
   },
@@ -17,6 +17,14 @@ export const metadata: Metadata = {
     siteName: 'Google Maps Timeline Visualizer',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/ogimage.png',
+        width: 1200,
+        height: 630,
+        alt: 'Privacy Policy - Google Maps Timeline Visualizer',
+      },
+    ],
   },
 };
 

@@ -8,7 +8,7 @@ export const blogPosts: BlogPost[] = [
     {
       title: "Step by Step Guide to Export Your Google Timeline Data",
       description:
-        "Learn how to export your location history from Google Maps Timeline and use it with visualization tools.",
+        "Step-by-step guide to export your Google Maps location history. Learn how to download your Timeline data and visualize it.",
       keywords: [
         "Google Maps",
         "Timeline",
@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
       openGraph: {
         title: "Step by Step Guide to Export Your Google Timeline Data",
         description:
-          "Learn how to export your location history from Google Maps Timeline and use it with visualization tools.",
+          "Step-by-step guide to export your Google Maps location history. Learn how to download your Timeline data and visualize it.",
         type: "article",
         publishedTime: "2025-04-12T00:00:00Z",
         authors: ["Quan Lai"],
@@ -38,7 +38,7 @@ export const blogPosts: BlogPost[] = [
         card: "summary_large_image",
         title: "Step by Step Guide to Export Your Google Timeline Data",
         description:
-          "Learn how to export your location history from Google Maps Timeline and use it with visualization tools.",
+          "Step-by-step guide to export your Google Maps location history. Learn how to download your Timeline data and visualize it.",
         images: ["/ogimage.png"],
         creator: "@quanlai",
       },

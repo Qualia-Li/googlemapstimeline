@@ -13,6 +13,14 @@ export const metadata: Metadata = {
     siteName: 'Google Maps Timeline Visualizer',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/ogimage.png',
+        width: 1200,
+        height: 630,
+        alt: 'Support Google Maps Timeline Visualizer',
+      },
+    ],
   },
   twitter: {
     card: 'summary',
