@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/ogimage.png',
+        url: '/ogimage.jpg',
         width: 1200,
         height: 630,
         alt: 'Support Google Maps Timeline Visualizer',

@@ -11,6 +11,8 @@ export function Footer() {
           <a href="mailto:mail@qualai.li" className="text-primary hover:underline">mail@qualai.li</a>
         </div>
         <span className="text-muted-foreground">|</span>
+        <Link href="/about" className="text-primary hover:underline">About</Link>
+        <span className="text-muted-foreground">|</span>
         <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
       </div>
       

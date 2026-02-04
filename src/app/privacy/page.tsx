@@ -6,20 +6,20 @@ import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Google Maps Timeline Visualizer",
-  description: "Learn how Google Maps Timeline Visualizer protects your privacy. All data processing happens locally in your browser.",
+  description: "Privacy policy for Google Maps Timeline Visualizer. All data processing happens locally in your browser. We never store your location data.",
   alternates: {
     canonical: 'https://www.googlemapstimeline.com/privacy',
   },
   openGraph: {
     title: "Privacy Policy - Google Maps Timeline Visualizer",
-    description: "Learn how Google Maps Timeline Visualizer protects your privacy. All data processing happens locally in your browser.",
+    description: "Privacy policy for Google Maps Timeline Visualizer. All data processing happens locally in your browser. We never store your location data.",
     url: 'https://www.googlemapstimeline.com/privacy',
     siteName: 'Google Maps Timeline Visualizer',
     locale: 'en_US',
     type: 'website',
     images: [
       {
-        url: '/ogimage.png',
+        url: '/ogimage.jpg',
         width: 1200,
         height: 630,
         alt: 'Privacy Policy - Google Maps Timeline Visualizer',

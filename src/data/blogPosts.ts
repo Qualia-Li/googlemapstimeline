@@ -27,7 +27,7 @@ export const blogPosts: BlogPost[] = [
         authors: ["Quan Lai"],
         images: [
           {
-            url: "/ogimage.png",
+            url: "/ogimage.jpg",
             width: 1200,
             height: 630,
             alt: "Google Maps Timeline Export Process",
@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
         title: "Step by Step Guide to Export Your Google Timeline Data",
         description:
           "Step-by-step guide to export your Google Maps location history. Learn how to download your Timeline data and visualize it.",
-        images: ["/ogimage.png"],
+        images: ["/ogimage.jpg"],
         creator: "@quanlai",
       },
       canonical:

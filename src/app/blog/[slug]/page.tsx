@@ -147,6 +147,7 @@ export default async function BlogPostPage({
                           width={300}
                           height={500}
                           className="object-contain"
+                          priority={index < 2}
                         />
                       </div>
                     )}
