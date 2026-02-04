@@ -376,6 +376,29 @@ export default function Home() {
 
         <DonationSection />
 
+        {/* Blog / Guides Section */}
+        <div className="mt-12 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-center">
+            Guides &amp; Resources
+          </h2>
+          <div className="grid gap-4">
+            <a
+              href="/blog/export-google-timeline-data"
+              className="bg-card p-4 rounded-lg shadow hover:shadow-md transition-shadow block"
+            >
+              <h3 className="text-lg font-semibold mb-1">Step by Step Guide to Export Your Google Timeline Data</h3>
+              <p className="text-sm text-muted-foreground">Learn how to download your location history from Google Maps and visualize it here.</p>
+            </a>
+            <a
+              href="/blog/privacy-and-location-data"
+              className="bg-card p-4 rounded-lg shadow hover:shadow-md transition-shadow block"
+            >
+              <h3 className="text-lg font-semibold mb-1">Understanding Privacy and Your Location Data</h3>
+              <p className="text-sm text-muted-foreground">A guide to Google Maps privacy practices and how to protect your location data.</p>
+            </a>
+          </div>
+        </div>
+
         {/* FAQ Section */}
         <div className="mt-12 max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-6 text-center">
@@ -401,9 +424,11 @@ export default function Home() {
                 🔒 Is my data safe?
               </h3>
               <p>
-                Absolutely! We don't store your data at all - we don't even have
+                Absolutely! We don&apos;t store your data at all - we don&apos;t even have
                 a backend server. All processing happens locally in your
-                browser.
+                browser. Read our{" "}
+                <a href="/privacy" className="text-blue-600 hover:underline">privacy policy</a>
+                {" "}for details.
               </p>
             </div>
 

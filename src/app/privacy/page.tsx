@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/ogimage.jpg',
+        url: '/ogimage.png',
         width: 1200,
         height: 630,
         alt: 'Privacy Policy - Google Maps Timeline Visualizer',
