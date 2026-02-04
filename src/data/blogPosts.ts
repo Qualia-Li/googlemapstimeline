@@ -160,9 +160,9 @@ export const blogPosts: BlogPost[] = [
     "privacy-and-location-data",
     {
       title:
-        "Understanding Privacy and Your Location Data in Google Maps (2025 Update)",
+        "Privacy and Location Data in Google Maps (2025)",
       description:
-        "A comprehensive guide to Google Maps' privacy practices, recent changes, and how to protect your location data.",
+        "A comprehensive guide to Google Maps privacy practices and recent changes. Learn how to protect your location data with updated settings.",
       keywords: [
         "Privacy",
         "Location Data",
@@ -175,17 +175,17 @@ export const blogPosts: BlogPost[] = [
       readingTime: "8 min read",
       openGraph: {
         title:
-          "Understanding Privacy and Your Location Data in Google Maps (2025 Update)",
+          "Privacy and Location Data in Google Maps (2025)",
         description:
-          "A comprehensive guide to Google Maps' privacy practices, recent changes, and how to protect your location data.",
+          "A comprehensive guide to Google Maps privacy practices and recent changes. Learn how to protect your location data with updated settings.",
         type: "article",
         publishedTime: "2025-04-15T00:00:00Z",
         authors: ["Quan Lai"],
         images: [
           {
-            url: "/images/privacy_location.webp",
-            width: 800,
-            height: 600,
+            url: "/ogimage.jpg",
+            width: 1200,
+            height: 630,
             alt: "Privacy and Location Data Visualization",
           },
         ],
@@ -193,10 +193,10 @@ export const blogPosts: BlogPost[] = [
       twitter: {
         card: "summary_large_image",
         title:
-          "Understanding Privacy and Your Location Data in Google Maps (2025 Update)",
+          "Privacy and Location Data in Google Maps (2025)",
         description:
-          "A comprehensive guide to Google Maps' privacy practices, recent changes, and how to protect your location data.",
-        images: ["/images/privacy_location.webp"],
+          "A comprehensive guide to Google Maps privacy practices and recent changes. Learn how to protect your location data with updated settings.",
+        images: ["/ogimage.jpg"],
         creator: "@quanlai",
       },
       canonical:

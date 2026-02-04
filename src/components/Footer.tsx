@@ -13,6 +13,8 @@ export function Footer() {
         <span className="text-muted-foreground">|</span>
         <Link href="/about" className="text-primary hover:underline">About</Link>
         <span className="text-muted-foreground">|</span>
+        <Link href="/contact" className="text-primary hover:underline">Contact</Link>
+        <span className="text-muted-foreground">|</span>
         <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
       </div>
       

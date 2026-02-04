@@ -62,6 +62,54 @@ export default async function BlogPostPage({
     <>
       <main>
       <article className="container mx-auto p-4 md:p-6 max-w-4xl">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([
+              {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                headline: post.metadata.title,
+                description: post.metadata.description,
+                datePublished: post.metadata.openGraph.publishedTime,
+                author: {
+                  "@type": "Person",
+                  name: post.metadata.openGraph.authors?.[0] ?? "Quan Lai",
+                },
+                image: post.metadata.openGraph.images?.[0]?.url,
+                publisher: {
+                  "@type": "Organization",
+                  name: "Google Maps Timeline Visualizer",
+                },
+                url: post.metadata.canonical,
+              },
+              {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://googlemapstimeline.com",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Blog",
+                    item: "https://googlemapstimeline.com/blog",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: post.metadata.title,
+                    item: post.metadata.canonical,
+                  },
+                ],
+              },
+            ]),
+          }}
+        />
         <Link href="/">
           <Button variant="ghost" className="mb-6">
             <ArrowLeft className="mr-2 h-4 w-4" />
