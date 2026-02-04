@@ -74,8 +74,11 @@ export default function AboutPage() {
             <p className="mb-4">
               Your location data is deeply personal. That&apos;s why this tool processes
               everything entirely in your browser. No data is ever sent to any server, stored,
-              or tracked. When you close the tab, your data is gone. You can verify this by
-              reviewing the{" "}
+              or tracked. When you close the tab, your data is gone. Learn more about how
+              Google handles your location data in our guide on{" "}
+              <Link href="/blog/privacy-and-location-data" className="text-blue-600 hover:underline">
+                privacy and location data in Google Maps
+              </Link>. You can also verify our practices by reviewing the{" "}
               <a
                 href="https://github.com/Qualia-Li/googlemapstimeline"
                 target="_blank"
@@ -116,6 +119,17 @@ export default function AboutPage() {
               >
                 GitHub
               </a>.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4">Support the Project</h2>
+            <p className="mb-4">
+              If you find this tool useful, consider{" "}
+              <Link href="/donate" className="text-blue-600 hover:underline">
+                making a donation
+              </Link>{" "}
+              to support ongoing development and hosting costs.
             </p>
           </section>
 

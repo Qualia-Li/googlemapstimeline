@@ -80,6 +80,10 @@ export default async function BlogPostPage({
                 publisher: {
                   "@type": "Organization",
                   name: "Google Maps Timeline Visualizer",
+                  logo: {
+                    "@type": "ImageObject",
+                    url: "https://www.googlemapstimeline.com/favicon.ico",
+                  },
                 },
                 url: post.metadata.canonical,
               },
