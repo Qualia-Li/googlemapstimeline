@@ -60,6 +60,7 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <main>
       <article className="container mx-auto p-4 md:p-6 max-w-4xl">
         <Link href="/">
           <Button variant="ghost" className="mb-6">
@@ -203,6 +204,7 @@ export default async function BlogPostPage({
           )}
         </div>
       </article>
+      </main>
       <Footer />
     </>
   );

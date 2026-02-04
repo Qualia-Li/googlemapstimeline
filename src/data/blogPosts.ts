@@ -27,9 +27,9 @@ export const blogPosts: BlogPost[] = [
         authors: ["Quan Lai"],
         images: [
           {
-            url: "/images/export_google_timeline.webp",
-            width: 800,
-            height: 800,
+            url: "/ogimage.png",
+            width: 1200,
+            height: 630,
             alt: "Google Maps Timeline Export Process",
           },
         ],
@@ -39,7 +39,7 @@ export const blogPosts: BlogPost[] = [
         title: "Step by Step Guide to Export Your Google Timeline Data",
         description:
           "Learn how to export your location history from Google Maps Timeline and use it with visualization tools.",
-        images: ["/images/export_google_timeline.webp"],
+        images: ["/ogimage.png"],
         creator: "@quanlai",
       },
       canonical:

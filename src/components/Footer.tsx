@@ -1,12 +1,17 @@
-import { Mail, Globe, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Mail } from "lucide-react";
 
 export function Footer() {
   return (
     <footer className="container mx-auto p-4 text-center text-sm text-muted-foreground pb-6">
-      <div className="mt-2 mb-4 flex items-center justify-center gap-2">
-        <Mail className="h-4 w-4" />
-        <span>Have suggestions? Contact: </span>
-        <a href="mailto:mail@qualai.li" className="text-primary hover:underline">mail@qualai.li</a>
+      <div className="mt-2 mb-4 flex items-center justify-center gap-4">
+        <div className="flex items-center gap-2">
+          <Mail className="h-4 w-4" />
+          <span>Have suggestions? Contact: </span>
+          <a href="mailto:mail@qualai.li" className="text-primary hover:underline">mail@qualai.li</a>
+        </div>
+        <span className="text-muted-foreground">|</span>
+        <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
       </div>
       
       <div className="mb-6">

@@ -13,12 +13,12 @@ export default function DonatePage() {
     if (formRef.current) {
       formRef.current.submit();
     }
-    
+
     // No timeout needed anymore
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center w-full min-h-screen py-2 text-center">
+    <main className="flex flex-col items-center justify-center w-full min-h-screen py-2 text-center">
       <h1 className="text-3xl font-bold mb-6">Thank You for Supporting This Project</h1>
       
       <p className="mb-6">
@@ -54,6 +54,6 @@ export default function DonatePage() {
       <Link href="/" className="text-blue-500 hover:underline">
         Return to Homepage
       </Link>
-    </div>
+    </main>
   );
 }

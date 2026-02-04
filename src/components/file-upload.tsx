@@ -115,12 +115,17 @@ export function FileUpload({ onFileLoaded, onError }: FileUploadProps) {
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
       >
+        <label htmlFor="location-history-upload" className="sr-only">
+          Upload your Google Maps Timeline JSON file
+        </label>
         <input
+          id="location-history-upload"
           type="file"
           className="hidden"
           onChange={handleFileSelect}
           ref={fileInputRef}
           accept=".json"
+          aria-label="Upload your Google Maps Timeline JSON file"
         />
 
         {isLoading ? (

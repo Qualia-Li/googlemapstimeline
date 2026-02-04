@@ -14,14 +14,17 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Google Maps Timeline Visualizer",
-  description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
+  description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
   keywords: ["google maps", "location history", "timeline", "maps", "visualization"],
   alternates: {
     canonical: 'https://www.googlemapstimeline.com',
   },
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     title: "Google Maps Timeline Visualizer",
-    description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
+    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
     url: 'https://www.googlemapstimeline.com',
     siteName: 'Google Maps Timeline Visualizer',
     locale: 'en_US',
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: "Google Maps Timeline Visualizer",
-    description: "Visualize your Google Maps Timeline data with this free tool. Upload your location history and see where you've been.",
+    description: "Visualize your Google Maps Timeline data with this free, privacy-focused tool. Upload your location history JSON file and see where you've been on an interactive map.",
     images: ['/ogimage.png'],
   },
 };
@@ -51,6 +54,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-2X617E3BDW"></script>
         <script
