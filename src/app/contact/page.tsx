@@ -49,6 +49,9 @@ export default function ContactPage() {
               <a href="mailto:mail@qualai.li" className="text-blue-600 hover:underline">
                 mail@qualai.li
               </a>.
+              We read every message and typically respond within a few business days.
+              Whether you have a question about how to use the tool, want to suggest a new
+              feature, or just want to say hello, we would love to hear from you.
             </p>
           </section>
 
@@ -63,7 +66,9 @@ export default function ContactPage() {
                 className="text-blue-600 hover:underline"
               >
                 GitHub repository
-              </a>. Contributions and pull requests are also welcome.
+              </a>. Contributions and pull requests are also welcome. If you encounter a
+              problem with file uploads, map rendering, or date filtering, GitHub issues
+              are the best way to report it so we can track and resolve it.
             </p>
           </section>
 
@@ -78,7 +83,20 @@ export default function ContactPage() {
                 className="text-blue-600 hover:underline"
               >
                 Quan Lai
-              </a>. The project is licensed under the MIT license and welcomes community involvement.
+              </a>, a software engineer based in San Francisco. The project is licensed
+              under the MIT license and welcomes community involvement. It was created
+              to provide a free, privacy-respecting way to explore Google Maps
+              location history without sending any personal data to external servers.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4">Response Times</h2>
+            <p className="mb-4">
+              Since this is a community-driven open-source project, response times may
+              vary. For urgent issues, GitHub is usually fastest. For general feedback
+              or partnership inquiries, email works best. We appreciate your patience
+              and support in keeping this tool free and available for everyone.
             </p>
           </section>
         </div>
