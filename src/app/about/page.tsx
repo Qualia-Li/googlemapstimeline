@@ -140,7 +140,15 @@ export default function AboutPage() {
               <a href="mailto:mail@qualai.li" className="text-blue-600 hover:underline">
                 mail@qualai.li
               </a>{" "}
-              or open an issue on GitHub.
+              or open an issue on GitHub. This project is also listed on{" "}
+              <a
+                href="https://dang.ai"
+                target="_blank"
+                rel="noopener"
+                className="text-blue-600 hover:underline"
+              >
+                Dang.ai
+              </a>.
             </p>
           </section>
         </div>
