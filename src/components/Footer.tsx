@@ -76,6 +76,17 @@ export function Footer() {
             </a>
             <p className="text-xs mt-1">AI entrepreneur and GEO expert</p>
           </div>
+          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
+            <a
+              href="https://openclaudia.com"
+              target="_blank"
+              rel="noopener"
+              className="text-primary hover:underline font-medium"
+            >
+              Claudia (CMO)
+            </a>
+            <p className="text-xs mt-1">Chief Marketing Officer across our projects</p>
+          </div>
         </div>
       </div>
 
