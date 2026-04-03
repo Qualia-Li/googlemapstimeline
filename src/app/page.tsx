@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { addDays, subDays } from "date-fns";
+import { addDays, subDays, subMonths, startOfMonth, endOfMonth } from "date-fns";
 import { DateRange } from "react-day-picker";
 import { Loader2, AlertCircle } from "lucide-react";
 
@@ -258,9 +258,10 @@ export default function Home() {
                 <Button
                   variant="outline"
                   onClick={() => {
+                    const lastMonth = subMonths(new Date(), 1);
                     setDateRange({
-                      from: subDays(new Date(), 30),
-                      to: new Date(),
+                      from: startOfMonth(lastMonth),
+                      to: endOfMonth(lastMonth),
                     });
                   }}
                 >
