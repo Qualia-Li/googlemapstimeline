@@ -34,17 +34,6 @@ export function Footer() {
           </div>
           <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
             <a
-              href="https://www.michelinkeyhotels.com/"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Michelin Key Hotels
-            </a>
-            <p className="text-xs mt-1">600+ luxury hotels from MICHELIN Guide</p>
-          </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
               href="https://enception.ai"
               target="_blank"
               rel="noopener"
