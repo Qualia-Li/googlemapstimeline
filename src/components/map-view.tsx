@@ -15,11 +15,11 @@ interface MapViewProps {
     lng: number;
   }>;
   height?: string;
-  mapOptions?: {
-    center?: { lat: number; lng: number };
-    zoom?: number;
-  };
 }
+
+// Opening view, used until markers or a path arrive and reframe the map.
+const DEFAULT_CENTER: [number, number] = [37.7749, -122.4194];
+const DEFAULT_ZOOM = 10;
 
 // Marker colours by place type, carried over from the previous Google pin set.
 const TYPE_COLORS: Record<string, string> = {
@@ -55,7 +55,6 @@ export default function MapView({
   markers = [],
   paths = [],
   height = "600px",
-  mapOptions = {},
 }: MapViewProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
@@ -73,12 +72,11 @@ export default function MapView({
         const L = (await import('leaflet')).default;
         if (cancelled || !containerRef.current || mapRef.current) return;
 
-        const center = mapOptions.center ?? { lat: 37.7749, lng: -122.4194 };
         // Store the instance before anything that can throw, so cleanup can
         // always remove it.
         const map = L.map(containerRef.current);
         mapRef.current = map;
-        map.setView([center.lat, center.lng], mapOptions.zoom ?? 10);
+        map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 
         // ponytail: public OSM tiles, fine at this traffic. If loads grow past
         // OSM's fair-use policy, point this URL at a hosted basemap or self-host.
