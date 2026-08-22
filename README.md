@@ -28,17 +28,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ### Prerequisites
 
-You need a Google Maps API key with the Maps JavaScript API enabled:
-
-1. Go to the [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select an existing one
-3. Enable the Maps JavaScript API
-4. Create an API key
-5. Add the API key to your `.env.local` file:
-
-```
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key_here
-```
+Maps are rendered with [Leaflet](https://leafletjs.com/) over OpenStreetMap tiles.
+No API key, billing account, or Google Cloud project is required.
 
 ### Running the Development Server
 

@@ -6,7 +6,7 @@ import { DateRange } from "react-day-picker";
 import { Loader2, AlertCircle } from "lucide-react";
 
 import { DateRangePickerWithPresets } from "@/components/date-range-picker";
-import GoogleMap from "@/components/google-map";
+import MapView from "@/components/map-view";
 import { FileUpload } from "@/components/file-upload";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,9 +17,6 @@ import {
 } from "@/lib/utils";
 import { DonationSection } from "@/components/DonationSection";
 import { Footer } from "@/components/Footer";
-
-// Get Google Maps API key from environment variable
-const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
 // Calculate distance between two coordinates using the Haversine formula
 const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -172,26 +169,6 @@ export default function Home() {
     );
   }
 
-  if (!GOOGLE_MAPS_API_KEY) {
-    return (
-      <div className="h-screen flex items-center justify-center">
-        <div className="text-center">
-          <AlertCircle className="mx-auto h-12 w-12 text-yellow-500 mb-4" />
-          <h1 className="text-2xl font-bold mb-4">
-            Google Maps API Key Missing
-          </h1>
-          <p className="mb-4">
-            Please add your Google Maps API key to the environment variables.
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Create a .env.local file and add:
-            NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
-          </p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <>
       <main className="container mx-auto p-4 md:p-6 min-h-screen">
@@ -212,9 +189,8 @@ export default function Home() {
 
             {/* Show map based on user's country without asking for permission */}
             <div className="mb-6 mt-8 relative" style={{ height: "400px" }}>
-              <GoogleMap
+              <MapView
                 key="country-map"
-                apiKey={GOOGLE_MAPS_API_KEY}
                 markers={[]}
                 paths={[]}
                 height="100%"
@@ -357,9 +333,8 @@ export default function Home() {
 
             <div className="mb-6 relative" style={{ height: "600px" }}>
               {filteredLocations.length > 0 ? (
-                <GoogleMap
+                <MapView
                   key={mapKey}
-                  apiKey={GOOGLE_MAPS_API_KEY}
                   markers={mapMarkers}
                   paths={mapPaths}
                   height="100%"
@@ -458,7 +433,7 @@ export default function Home() {
                 >
                   github.com/Qualia-Li/googlemapstimeline
                 </a>
-                . You can also host it yourself if you have a Google API key.
+                . You can also host it yourself, no API key required.
               </p>
             </div>
           </div>
