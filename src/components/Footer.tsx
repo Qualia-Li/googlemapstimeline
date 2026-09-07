@@ -65,56 +65,6 @@ export function Footer() {
             </a>
             <p className="text-xs mt-1">AI entrepreneur and GEO expert</p>
           </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://openclaudia.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Claudia (CMO)
-            </a>
-            <p className="text-xs mt-1">Chief Marketing Officer across our projects</p>
-          </div>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <div className="text-center mb-3 font-medium">Sponsors:</div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto text-left">
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://sfbayareatimes.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              SF Bay Area Times
-            </a>
-            <p className="text-xs mt-1">Independent news covering San Francisco Bay Area and Northern California</p>
-          </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://montrealtimes.ca"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Montreal Times
-            </a>
-            <p className="text-xs mt-1">Independent journalism for Montréal, Québec, and Canada</p>
-          </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://stanfordtechreview.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Stanford Tech Review
-            </a>
-            <p className="text-xs mt-1">Weekly review of advanced technologies by Stanford community</p>
-          </div>
         </div>
       </div>
 
