@@ -1,0 +1,5 @@
+Codex-Review: passed
+Reviewer: OpenAI Codex CLI
+Reviewed-At: 2026-09-14T23:19:40Z
+Declined-By: Claude Code
+Declined: sharp 0.33/0.34 -> 0.35 crosses the pre-1.0 breaking boundary (MEDIUM) — no repo calls format.jp2k, .avif() or failOnError, and all of them run Node 20+, so the dropped Node 18 support and renamed APIs are unreachable. Verified sharp 0.35.4 loads and encodes. If wrong: a runtime image-processing crash, loud and immediate.
