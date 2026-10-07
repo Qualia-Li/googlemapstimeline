@@ -1,0 +1,20 @@
+# Google Maps Timeline Visualizer
+
+> A free, privacy-focused tool to visualize your Google Maps Timeline location history — upload your data and explore your travels in the browser.
+
+Google Maps Timeline Visualizer lets you import your exported Google location
+history and view it as an interactive map and travel summary. Processing happens
+in the browser; the tool is independent and not affiliated with Google. Content
+may be quoted with attribution and a link.
+
+## Key pages
+
+- [Home](https://googlemapstimeline.com/)
+- [Blog](https://googlemapstimeline.com/blog)
+- [About](https://googlemapstimeline.com/about)
+- [Privacy](https://googlemapstimeline.com/privacy)
+- [Contact](https://googlemapstimeline.com/contact)
+
+## Contact
+
+contact@googlemapstimeline.com
