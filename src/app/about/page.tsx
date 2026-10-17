@@ -137,8 +137,8 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold mb-4">Contact</h2>
             <p className="mb-4">
               Have questions, feedback, or suggestions? Reach out at{" "}
-              <a href="mailto:mail@qualai.li" className="text-blue-600 hover:underline">
-                mail@qualai.li
+              <a href="mailto:mail@quanlai.li" className="text-blue-600 hover:underline">
+                mail@quanlai.li
               </a>{" "}
               or open an issue on GitHub. This project is also listed on{" "}
               <a

@@ -8,7 +8,7 @@ export function Footer() {
         <div className="flex items-center gap-2">
           <Mail className="h-4 w-4" />
           <span>Have suggestions? Contact: </span>
-          <a href="mailto:mail@qualai.li" className="text-primary hover:underline">mail@qualai.li</a>
+          <a href="mailto:mail@quanlai.li" className="text-primary hover:underline">mail@quanlai.li</a>
         </div>
         <span className="text-muted-foreground">|</span>
         <Link href="/about" className="text-primary hover:underline">About</Link>
@@ -28,31 +28,9 @@ export function Footer() {
               rel="noopener"
               className="text-primary hover:underline font-medium"
             >
-              ChatSlide
+              AI Slide Creation
             </a>
-            <p className="text-xs mt-1">AI-powered slides, videos, and podcasts</p>
-          </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://enception.ai"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Enception
-            </a>
-            <p className="text-xs mt-1">Get cited by AI tools with GEO</p>
-          </div>
-          <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
-            <a
-              href="https://assyro.com"
-              target="_blank"
-              rel="noopener"
-              className="text-primary hover:underline font-medium"
-            >
-              Assyro AI
-            </a>
-            <p className="text-xs mt-1">Automated FDA eCTD submission validation</p>
+            <p className="text-xs mt-1">ChatSlide turns docs into slides, videos, and podcasts</p>
           </div>
           <div className="border rounded-lg p-4 bg-card hover:shadow-md transition-shadow">
             <a

@@ -15,7 +15,6 @@ import {
   extractMarkersFromVisitData,
   extractPathFromActivityData,
 } from "@/lib/utils";
-import { DonationSection } from "@/components/DonationSection";
 import { Footer } from "@/components/Footer";
 
 // Calculate distance between two coordinates using the Haversine formula
@@ -350,8 +349,6 @@ export default function Home() {
           </>
         )}
 
-        <DonationSection />
-
         {/* Blog / Guides Section */}
         <div className="mt-12 max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-6 text-center">
@@ -385,13 +382,7 @@ export default function Home() {
             <div className="bg-card p-4 rounded-lg shadow">
               <h3 className="text-lg font-semibold mb-2">💰 Is this free?</h3>
               <p>
-                Yes, it is completely free to use! But if you find it helpful,
-                you can <a 
-                  href="https://www.paypal.com/donate?business=FHJMRDXEDC74L&amount=8&no_recurring=0&item_name=Buy+me+a+cup+of+coffee&currency_code=USD" 
-                  target="_blank" 
-                  rel="noopener"
-                  className="text-blue-600 hover:underline"
-                >donate</a> to support development.
+                Yes, it is completely free to use!
               </p>
             </div>
 

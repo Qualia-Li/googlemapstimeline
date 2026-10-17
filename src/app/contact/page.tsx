@@ -46,8 +46,8 @@ export default function ContactPage() {
             <h2 className="text-2xl font-bold mb-4">Email</h2>
             <p className="mb-4">
               For general inquiries, feedback, or suggestions, reach out via email at{" "}
-              <a href="mailto:mail@qualai.li" className="text-blue-600 hover:underline">
-                mail@qualai.li
+              <a href="mailto:mail@quanlai.li" className="text-blue-600 hover:underline">
+                mail@quanlai.li
               </a>.
               We read every message and typically respond within a few business days.
               Whether you have a question about how to use the tool, want to suggest a new
