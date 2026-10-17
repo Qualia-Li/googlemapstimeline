@@ -2,6 +2,8 @@
 
 Available at [www.googlemapstimeline.com](https://www.googlemapstimeline.com). 
 
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Qualia-Li/googlemapstimeline)
+
 This application allows you to visualize your Google Maps Timeline (Location History) data on an interactive map. Upload your location history JSON file, select a date range, and explore your past movements and visited places.
 
 ## Features

@@ -1,0 +1,13 @@
+{
+  "name": "Google Maps Timeline Visualizer",
+  "description": "Visualize your Google Maps Timeline (Location History) on an interactive map. Files are processed in the browser.",
+  "website": "https://www.googlemapstimeline.com",
+  "repository": "https://github.com/Qualia-Li/googlemapstimeline",
+  "keywords": ["google-maps", "timeline", "location-history", "nextjs", "visualization"],
+  "env": {
+    "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY": {
+      "description": "Google Maps JavaScript API key"
+    }
+  },
+  "buildpacks": [{ "url": "heroku/nodejs" }]
+}
