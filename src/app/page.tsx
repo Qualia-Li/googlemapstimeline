@@ -370,6 +370,9 @@ export default function Home() {
               <p className="text-sm text-muted-foreground">A guide to Google Maps privacy practices and how to protect your location data.</p>
             </a>
           </div>
+          <p className="mt-4 text-center">
+            <a href="/articles" className="text-primary hover:underline">More articles on Google Maps Timeline →</a>
+          </p>
         </div>
 
         {/* FAQ Section */}

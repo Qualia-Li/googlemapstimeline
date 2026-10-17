@@ -11,6 +11,8 @@ export function Footer() {
           <a href="mailto:mail@quanlai.li" className="text-primary hover:underline">mail@quanlai.li</a>
         </div>
         <span className="text-muted-foreground">|</span>
+        <Link href="/articles" className="text-primary hover:underline">Articles</Link>
+        <span className="text-muted-foreground">|</span>
         <Link href="/about" className="text-primary hover:underline">About</Link>
         <span className="text-muted-foreground">|</span>
         <Link href="/contact" className="text-primary hover:underline">Contact</Link>

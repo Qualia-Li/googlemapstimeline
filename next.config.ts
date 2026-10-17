@@ -25,6 +25,13 @@ try {
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // /articles is served by PageGun (project 7XmfuoKE)
+  async rewrites() {
+    return [
+      { source: "/articles", destination: "https://www.pagegun.com/p/7XmfuoKE/articles" },
+      { source: "/articles/:path*", destination: "https://www.pagegun.com/p/7XmfuoKE/articles/:path*" },
+    ];
+  },
   async headers() {
     return [
       {
