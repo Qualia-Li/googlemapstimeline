@@ -1,17 +1,16 @@
 import Script from "next/script";
 
 /**
- * Adsterra, site-wide. Replaces AdSense, which never cleared site review here.
+ * Adsterra, site-wide. AdSense never cleared site review here, so AdSense is off
+ * until it does.
  *
- * NEXT_PUBLIC_ADSTERRA_SCRIPTS = comma-separated script URLs copied from the
- * Adsterra "Get code" snippets (Social Bar, Popunder). Unset = renders nothing.
- *
- * ponytail: script-only formats. Native/display banners need a container div
- * per placement; add them when a slot is wanted.
+ * ponytail: hardcoded like every other owned site; the URLs are public anyway.
  */
-export default function Adsterra() {
-  const srcs = process.env.NEXT_PUBLIC_ADSTERRA_SCRIPTS?.split(",").map((s) => s.trim()).filter(Boolean);
-  if (!srcs?.length) return null;
+const SCRIPTS = [
+  "https://bauval.org/14/981b54bbbd84de59702304646ae0e7ae", // Social Bar
+  "https://abscloud.org/1/60b71e77c3acc5fed02bf8cf503d05a0", // Popunder (added 2026-10-18)
+];
 
-  return srcs.map((src) => <Script key={src} src={src} strategy="lazyOnload" />);
+export default function Adsterra() {
+  return SCRIPTS.map((src) => <Script key={src} src={src} strategy="lazyOnload" />);
 }
