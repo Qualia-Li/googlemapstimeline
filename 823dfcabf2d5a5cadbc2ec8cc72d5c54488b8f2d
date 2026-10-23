@@ -1,0 +1,6 @@
+Codex-Review: passed
+Reviewer: OpenAI Codex CLI
+Reviewed-At: 2026-10-23T07:03:22Z
+Fixed: exact version pins restored where npm had widened them to ^ (marble3d.ai, detectaiwatermark)
+Declined-By: Claude Code
+Declined: manifest changed without lockfile, frozen install would fail. Does not apply: lockfiles were left out of the review patch only, and each is updated in this same commit.
