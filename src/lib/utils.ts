@@ -100,3 +100,74 @@ export function extractMarkersFromVisitData(visits: LocationHistoryItem[]): Arra
       type?: string;
     }>;
 }
+
+/** "51.6659027°, 17.8121633°" (Android Timeline.json) -> "geo:51.6659027,17.8121633". */
+function latLngToGeo(latLng: unknown): string {
+  if (typeof latLng !== "string") return "";
+  const parts = latLng.replace(/°/g, "").split(",").map((p) => parseFloat(p.trim()));
+  if (parts.length !== 2 || !parts.every(Number.isFinite)) return "";
+  return `geo:${parts[0].toFixed(7)},${parts[1].toFixed(7)}`;
+}
+
+/** HOME -> Home, INFERRED_WORK -> Work, UNKNOWN -> Unknown, so map colours match the iPhone export. */
+function semanticTypeLabel(type: unknown): string {
+  if (typeof type !== "string" || !type) return "Unknown";
+  const t = type.replace(/^INFERRED_/, "").toLowerCase().replace(/_/g, " ");
+  return t.charAt(0).toUpperCase() + t.slice(1);
+}
+
+/**
+ * Turn any supported Timeline export into the iPhone array shape the visualizer reads.
+ * - iPhone "location-history.json": already an array of { startTime, visit | activity }.
+ * - Android "Timeline.json": { semanticSegments: [...] } with "lat°, lng°" strings.
+ * Returns null when the file is neither.
+ */
+export function normalizeTimelineExport(json: unknown): LocationHistoryItem[] | null {
+  if (Array.isArray(json)) {
+    // iPhone exports mix visit/activity entries with timelinePath ones, so the first entry alone proves nothing.
+    const looksLikeTimeline = json.some((x) => x?.startTime && (x.visit || x.activity || x.timelinePath));
+    if (json.length > 0 && !looksLikeTimeline) return null;
+    return json as LocationHistoryItem[];
+  }
+  const segments = (json as { semanticSegments?: unknown })?.semanticSegments;
+  if (!Array.isArray(segments)) return null;
+
+  const items: LocationHistoryItem[] = [];
+  for (const seg of segments) {
+    if (!seg?.startTime) continue;
+    const base = { startTime: seg.startTime, endTime: seg.endTime ?? seg.startTime };
+    if (seg.visit) {
+      const top = seg.visit.topCandidate ?? {};
+      const placeLocation = latLngToGeo(top.placeLocation?.latLng);
+      if (!placeLocation) continue;
+      items.push({
+        ...base,
+        visit: {
+          topCandidate: {
+            placeLocation,
+            placeID: top.placeId,
+            semanticType: semanticTypeLabel(top.semanticType),
+          },
+          probability: String(seg.visit.probability ?? ""),
+        },
+      });
+    } else if (seg.activity) {
+      const start = latLngToGeo(seg.activity.start?.latLng);
+      const end = latLngToGeo(seg.activity.end?.latLng);
+      if (!start || !end) continue;
+      items.push({
+        ...base,
+        activity: {
+          start,
+          end,
+          topCandidate: {
+            type: String(seg.activity.topCandidate?.type ?? ""),
+            probability: String(seg.activity.topCandidate?.probability ?? ""),
+          },
+          distanceMeters: String(seg.activity.distanceMeters ?? ""),
+        },
+      });
+    }
+  }
+  return items;
+}
