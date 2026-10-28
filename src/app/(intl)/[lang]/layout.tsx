@@ -1,5 +1,4 @@
 import { notFound } from "next/navigation";
-import Adsterra from "@/components/Adsterra";
 import Analytics from "@/components/Analytics";
 import { geistSans, geistMono } from "@/lib/fonts";
 import { LOCALES, isLocale } from "@/lib/i18n";
@@ -28,7 +27,6 @@ export default async function LocaleLayout({
         <Analytics />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Adsterra />
         {children}
       </body>
     </html>

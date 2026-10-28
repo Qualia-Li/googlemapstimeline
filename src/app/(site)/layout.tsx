@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Adsterra from "@/components/Adsterra";
 import Analytics from "@/components/Analytics";
 import { geistSans, geistMono } from "@/lib/fonts";
 import "../globals.css";
@@ -52,7 +51,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Adsterra />
         {children}
       </body>
     </html>
