@@ -1,0 +1,5 @@
+Codex-Review: passed
+Reviewer: OpenAI Codex CLI
+Reviewed-At: 2026-10-28T10:26:06Z
+Declined-By: Claude Code
+Declined: MEDIUM utils.ts normalizer skips Android timelinePath breadcrumbs - visits and activities still draw every stop and trip, the iPhone path already ignores timelinePath the same way; cost if wrong is less detailed route lines, nothing missing from counts of places
