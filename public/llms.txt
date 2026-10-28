@@ -10,6 +10,11 @@ may be quoted with attribution and a link.
 ## Key pages
 
 - [Home](https://googlemapstimeline.com/)
+- [How to export Google Maps Timeline (Android and iPhone)](https://www.googlemapstimeline.com/export-google-maps-timeline)
+- [Timeline.json viewer and file format](https://www.googlemapstimeline.com/timeline-json-viewer)
+- [Google Maps Timeline viewer](https://www.googlemapstimeline.com/google-maps-timeline)
+- [Timeline visualization](https://www.googlemapstimeline.com/timeline-visualization)
+- Localized tool pages: [한국어](https://www.googlemapstimeline.com/ko), [Bahasa Indonesia](https://www.googlemapstimeline.com/id), [Tiếng Việt](https://www.googlemapstimeline.com/vi), [日本語](https://www.googlemapstimeline.com/ja)
 - [Blog](https://googlemapstimeline.com/blog)
 - [About](https://googlemapstimeline.com/about)
 - [Privacy](https://googlemapstimeline.com/privacy)
