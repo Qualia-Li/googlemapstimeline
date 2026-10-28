@@ -4,6 +4,8 @@ import * as React from "react";
 import { addDays, format, startOfWeek, endOfWeek, subWeeks, startOfMonth, endOfMonth, subMonths, startOfYear } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
+import type { Locale as DateFnsLocale } from "date-fns";
+import { EN_UI, type UiStrings } from "@/lib/i18n";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -14,6 +16,12 @@ interface DateRangePickerProps {
   className?: string;
   dateRange: DateRange | undefined;
   onDateRangeChange: (range: DateRange | undefined) => void;
+}
+
+interface PresetPickerProps extends DateRangePickerProps {
+  t?: UiStrings;
+  /** date-fns locale for the calendar and the button label; English when omitted. */
+  dateLocale?: DateFnsLocale;
 }
 
 export function DateRangePicker({
@@ -67,7 +75,10 @@ export function DateRangePickerWithPresets({
   className,
   dateRange,
   onDateRangeChange,
-}: DateRangePickerProps) {
+  t = EN_UI,
+  dateLocale,
+}: PresetPickerProps) {
+  const fmt = (d: Date) => format(d, dateLocale ? "PP" : "LLL dd, y", { locale: dateLocale });
   return (
     <div className={cn("grid gap-2", className)}>
       <Popover>
@@ -84,21 +95,21 @@ export function DateRangePickerWithPresets({
             {dateRange?.from ? (
               dateRange.to ? (
                 <>
-                  {format(dateRange.from, "LLL dd, y")} -{" "}
-                  {format(dateRange.to, "LLL dd, y")}
+                  {fmt(dateRange.from)} -{" "}
+                  {fmt(dateRange.to)}
                 </>
               ) : (
-                format(dateRange.from, "LLL dd, y")
+                fmt(dateRange.from)
               )
             ) : (
-              <span>Pick a date range</span>
+              <span>{t.pickDateRange}</span>
             )}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <div className="flex flex-col sm:flex-row">
             <div className="border-r p-4 flex flex-col gap-2">
-              <h3 className="font-medium text-sm">Quick Select</h3>
+              <h3 className="font-medium text-sm">{t.quickSelect}</h3>
               <div className="grid grid-cols-2 gap-2">
                 <Button
                   variant="outline"
@@ -111,7 +122,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Today
+                  {t.today}
                 </Button>
                 <Button
                   variant="outline"
@@ -125,7 +136,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Yesterday
+                  {t.yesterday}
                 </Button>
                 <Button
                   variant="outline"
@@ -138,7 +149,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Last 7 days
+                  {t.last7}
                 </Button>
                 <Button
                   variant="outline"
@@ -151,7 +162,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Last 30 days
+                  {t.last30}
                 </Button>
                 <Button
                   variant="outline"
@@ -167,7 +178,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Last Week
+                  {t.presetLastWeek}
                 </Button>
                 <Button
                   variant="outline"
@@ -183,7 +194,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Last Month
+                  {t.presetLastMonth}
                 </Button>
                 <Button
                   variant="outline"
@@ -196,7 +207,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  This Year
+                  {t.thisYear}
                 </Button>
                 <Button
                   variant="outline"
@@ -209,7 +220,7 @@ export function DateRangePickerWithPresets({
                     });
                   }}
                 >
-                  Past 12 Months
+                  {t.past12}
                 </Button>
               </div>
             </div>
@@ -220,6 +231,7 @@ export function DateRangePickerWithPresets({
               selected={dateRange}
               onSelect={onDateRangeChange}
               numberOfMonths={2}
+              locale={dateLocale}
             />
           </div>
         </PopoverContent>

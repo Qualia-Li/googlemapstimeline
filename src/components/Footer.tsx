@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail } from "lucide-react";
+import { LANGUAGE_NAMES, LOCALES } from "@/lib/i18n";
 
 export function Footer() {
   return (
@@ -19,7 +20,16 @@ export function Footer() {
         <span className="text-muted-foreground">|</span>
         <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>
       </div>
-      
+
+      <nav aria-label="Languages" className="mb-4 flex flex-wrap items-center justify-center gap-3">
+        <a href="/" hrefLang="en" className="text-primary hover:underline">{LANGUAGE_NAMES.en}</a>
+        {LOCALES.map((l) => (
+          <a key={l} href={`/${l}`} hrefLang={l} className="text-primary hover:underline">
+            {LANGUAGE_NAMES[l]}
+          </a>
+        ))}
+      </nav>
+
       <div className="mb-6">
         <div className="text-center mb-3 font-medium">Other projects:</div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto text-left">

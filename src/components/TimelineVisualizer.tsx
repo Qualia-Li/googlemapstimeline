@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useMemo, useCallback } from "react";
-import { addDays, subDays, subMonths, startOfMonth, endOfMonth } from "date-fns";
+import { subDays, subMonths, startOfMonth, endOfMonth } from "date-fns";
+import { ko, id, vi, ja } from "date-fns/locale";
 import { DateRange } from "react-day-picker";
 import { Loader2, AlertCircle } from "lucide-react";
 
@@ -15,7 +16,9 @@ import {
   extractMarkersFromVisitData,
   extractPathFromActivityData,
 } from "@/lib/utils";
-import { Footer } from "@/components/Footer";
+import { EN_UI, type Locale, type UiStrings } from "@/lib/i18n";
+
+const DATE_LOCALES = { ko, id, vi, ja };
 
 // Calculate distance between two coordinates using the Haversine formula
 const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
@@ -31,7 +34,16 @@ const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: numbe
   return distance;
 };
 
-export default function Home() {
+interface TimelineVisualizerProps {
+  t?: UiStrings;
+  /** Omitted on the English page. */
+  locale?: Locale;
+  /** BCP 47 tag for the date-range stat, e.g. "ko-KR". */
+  intl?: string;
+}
+
+/** Upload box, date filters, stats and map. Everything runs in the browser. */
+export default function TimelineVisualizer({ t = EN_UI, locale, intl }: TimelineVisualizerProps) {
   // Calculate total distance for all path segments
   const calculateTotalDistance = (
     paths: Array<{ lat: number; lng: number }>
@@ -146,22 +158,22 @@ export default function Home() {
 
   if (isLoading) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="py-16 flex items-center justify-center">
         <Loader2 className="mr-2 h-8 w-8 animate-spin" />
-        <p className="text-lg">Loading your location history...</p>
+        <p className="text-lg">{t.processing}</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="h-screen flex items-center justify-center">
+      <div className="py-16 flex items-center justify-center">
         <div className="text-center">
           <AlertCircle className="mx-auto h-12 w-12 text-red-500 mb-4" />
-          <h1 className="text-2xl font-bold mb-4">Error Loading Data</h1>
+          <h2 className="text-2xl font-bold mb-4">{t.errorTitle}</h2>
           <p className="mb-4 text-red-500">{error}</p>
           <Button onClick={() => setError(null)} variant="outline">
-            Try Again
+            {t.tryAgain}
           </Button>
         </div>
       </div>
@@ -170,20 +182,16 @@ export default function Home() {
 
   return (
     <>
-      <main className="container mx-auto p-4 md:p-6 min-h-screen">
-        <h1 className="text-3xl font-bold mb-6">
-          Google Maps Timeline Visualizer
-        </h1>
-
         {!isFileUploaded ? (
           // Show file upload UI if no file has been uploaded yet
           <div className="my-8">
             <h2 className="text-xl font-semibold mb-4 text-center">
-              Upload Your Location History
+              {t.uploadHeading}
             </h2>
             <FileUpload
               onFileLoaded={handleFileLoaded}
               onError={handleFileError}
+              t={t}
             />
 
             {/* Show map based on user's country without asking for permission */}
@@ -204,6 +212,8 @@ export default function Home() {
                 <DateRangePickerWithPresets
                   dateRange={dateRange}
                   onDateRangeChange={handleDateRangeChange}
+                  t={t}
+                  dateLocale={locale ? DATE_LOCALES[locale] : undefined}
                 />
               </div>
 
@@ -217,7 +227,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  Last 24 Hours
+                  {t.last24h}
                 </Button>
                 <Button
                   variant="outline"
@@ -228,7 +238,7 @@ export default function Home() {
                     });
                   }}
                 >
-                  Last Week
+                  {t.lastWeek}
                 </Button>
                 <Button
                   variant="outline"
@@ -240,14 +250,14 @@ export default function Home() {
                     });
                   }}
                 >
-                  Last Month
+                  {t.lastMonth}
                 </Button>
                 <Button
                   variant="destructive"
                   onClick={() => setIsFileUploaded(false)}
                   className="ml-auto"
                 >
-                  Upload Different File
+                  {t.uploadDifferent}
                 </Button>
               </div>
             </div>
@@ -255,18 +265,18 @@ export default function Home() {
             <div className="stats mb-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
               <div className="stat p-4 bg-card rounded-lg shadow">
                 <div className="stat-title text-muted-foreground">
-                  Total Locations
+                  {t.totalLocations}
                 </div>
                 <div className="stat-value text-2xl font-bold">
                   {mapMarkers.length}
                 </div>
                 <div className="stat-desc text-muted-foreground text-sm">
-                  Places visited
+                  {t.placesVisited}
                 </div>
               </div>
               <div className="stat p-4 bg-card rounded-lg shadow">
                 <div className="stat-title text-muted-foreground">
-                  Distance Traveled
+                  {t.distance}
                 </div>
                 <div className="stat-value text-2xl font-bold flex items-center">
                   {calculateTotalDistance(mapPaths).toFixed(1)}
@@ -278,15 +288,21 @@ export default function Home() {
                   </button>
                 </div>
                 <div className="stat-desc text-muted-foreground text-sm">
-                  Total journey length
+                  {t.journeyLength}
                 </div>
               </div>
               <div className="stat p-4 bg-card rounded-lg shadow">
                 <div className="stat-title text-muted-foreground">
-                  Date Range
+                  {t.dateRange}
                 </div>
                 <div className="stat-value text-2xl font-bold">
-                  {dateRange
+                  {dateRange && intl
+                    ? (() => {
+                        const f = new Intl.DateTimeFormat(intl, { month: "short", day: "numeric" });
+                        const from = dateRange.from ?? new Date();
+                        return `${f.format(from)} - ${f.format(dateRange.to ?? from)}`;
+                      })()
+                    : dateRange
                     ? (() => {
                         const monthNames = [
                           "Jan",
@@ -311,21 +327,21 @@ export default function Home() {
                         const toDate = dateRange.to?.getDate() || fromDate;
                         return `${fromMonth} ${fromDate} - ${toMonth} ${toDate}`;
                       })()
-                    : "None"}
+                    : t.none}
                 </div>
                 <div className="stat-desc text-muted-foreground text-sm">
-                  Selected period
+                  {t.selectedPeriod}
                 </div>
               </div>
               <div className="stat p-4 bg-card rounded-lg shadow">
                 <div className="stat-title text-muted-foreground">
-                  Data Points
+                  {t.dataPoints}
                 </div>
                 <div className="stat-value text-2xl font-bold">
                   {filteredLocations.length}
                 </div>
                 <div className="stat-desc text-muted-foreground text-sm">
-                  Timeline entries
+                  {t.timelineEntries}
                 </div>
               </div>
             </div>
@@ -341,99 +357,13 @@ export default function Home() {
               ) : (
                 <div className="h-full flex items-center justify-center bg-secondary rounded-lg">
                   <p className="text-lg">
-                    No location data available for the selected date range
+                    {t.noData}
                   </p>
                 </div>
               )}
             </div>
           </>
         )}
-
-        {/* Blog / Guides Section */}
-        <div className="mt-12 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            Guides &amp; Resources
-          </h2>
-          <div className="grid gap-4">
-            <a
-              href="/blog/export-google-timeline-data"
-              className="bg-card p-4 rounded-lg shadow hover:shadow-md transition-shadow block"
-            >
-              <h3 className="text-lg font-semibold mb-1">Step by Step Guide to Export Your Google Timeline Data</h3>
-              <p className="text-sm text-muted-foreground">Learn how to download your location history from Google Maps and visualize it here.</p>
-            </a>
-            <a
-              href="/blog/privacy-and-location-data"
-              className="bg-card p-4 rounded-lg shadow hover:shadow-md transition-shadow block"
-            >
-              <h3 className="text-lg font-semibold mb-1">Understanding Privacy and Your Location Data</h3>
-              <p className="text-sm text-muted-foreground">A guide to Google Maps privacy practices and how to protect your location data.</p>
-            </a>
-          </div>
-          <p className="mt-4 text-center">
-            <a href="/articles" className="text-primary hover:underline">More articles on Google Maps Timeline →</a>
-          </p>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="mt-12 max-w-3xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-center">
-            🤔 Frequently Asked Questions
-          </h2>
-
-          <div className="space-y-6">
-            <div className="bg-card p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-2">💰 Is this free?</h3>
-              <p>
-                Yes, it is completely free to use!
-              </p>
-            </div>
-
-            <div className="bg-card p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-2">
-                🔒 Is my data safe?
-              </h3>
-              <p>
-                Absolutely! We don&apos;t store your data at all - we don&apos;t even have
-                a backend server. All processing happens locally in your
-                browser. Read our{" "}
-                <a href="/privacy" className="text-blue-600 hover:underline">privacy policy</a>
-                {" "}for details.
-              </p>
-            </div>
-
-            <div className="bg-card p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-2">
-                🌐 Are you affiliated with Google?
-              </h3>
-              <p>
-                No, I'm just a programmer who loves travel and needed a tool to
-                visualize my travel routes. This is an independent project.
-              </p>
-            </div>
-
-            <div className="bg-card p-4 rounded-lg shadow">
-              <h3 className="text-lg font-semibold mb-2">
-                👨‍💻 What if I'm still uncertain about my data?
-              </h3>
-              <p>
-                Our code is open source! You can feel free to check it (don't
-                forget to give us a star) at{" "}
-                <a
-                  href="https://github.com/Qualia-Li/googlemapstimeline"
-                  target="_blank"
-                  rel="noopener"
-                  className="text-blue-600 hover:underline"
-                >
-                  github.com/Qualia-Li/googlemapstimeline
-                </a>
-                . You can also host it yourself, no API key required.
-              </p>
-            </div>
-          </div>
-        </div>
-      </main>
-      <Footer />
     </>
   );
 }
