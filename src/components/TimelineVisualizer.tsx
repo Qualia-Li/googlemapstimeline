@@ -93,6 +93,16 @@ export default function TimelineVisualizer({ t = EN_UI, locale, intl }: Timeline
 
   // Handle file upload success
   const handleFileLoaded = (data: LocationHistoryItem[]) => {
+    // The default window is the last 7 days; most exports end earlier, which left the
+    // map empty after every upload. Open on the 7 days ending at the file's last entry.
+    const latest = data.reduce((max, item) => {
+      const t = Date.parse(item.startTime);
+      return Number.isFinite(t) && t > max ? t : max;
+    }, -Infinity);
+    if (Number.isFinite(latest) && latest < subDays(new Date(), 7).getTime()) {
+      const to = new Date(latest);
+      setDateRange({ from: subDays(to, 7), to });
+    }
     setLocationHistory(data);
     setIsFileUploaded(true);
     setError(null);

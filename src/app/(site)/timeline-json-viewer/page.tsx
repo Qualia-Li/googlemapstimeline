@@ -99,7 +99,7 @@ export default function Page() {
       <ul>
         <li>Make sure you picked the <code>.json</code> file itself, not a ZIP that contains it.</li>
         <li>Files named <code>Records.json</code> or folders called <em>Semantic Location History</em> come from the old Google Takeout export, which this viewer does not read yet.</li>
-        <li>If the file opened but the map is empty, widen the date range: it starts on the last 7 days.</li>
+        <li>If the file opened but the map is empty, widen the date range: it opens on the last 7 days of your file.</li>
       </ul>
     </GuideLayout>
   );
